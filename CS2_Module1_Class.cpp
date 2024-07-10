@@ -5,10 +5,12 @@
 using namespace std;
 
 void practiceArrays();
+void practicePointers();
 void populateNumbers(int* numbers, int count);
 
 int main() {
     practiceArrays();
+    practicePointers();
     return 0;
 }
 
@@ -40,7 +42,7 @@ void practiceArrays() {
     }
 
     average = static_cast<double>(sum) / count;
-    cout << "\nSum: " << sum << endl;
+    cout << endl << "Sum: " << sum << endl;
     cout << "Average: " << average << endl;
     cout << "Max: " << max << endl;
     cout << "Min: " << min << endl;
@@ -57,26 +59,34 @@ void populateNumbers(int* numbers, int count) {
 
 
 void practicePointers() {
-   
-    string months[12] = {
-        "January", "Febrauary", "March", "April", "May", "June", "July", "AUgust", "September", "October", "November", "December"
+    string name;
+    int age;
+
+    cout << "Enter your name: ";
+    cin >> name; 
+    cout << "Enter your age: ";
+    cin >> age;
+        
+    cout << "Name: " << name << endl;
+    cout << "Address of name variable: " << static_cast<void*>(&name) << endl;
+
+    cout << "Age: " << age << endl;
+    cout << "Address of age variable: " << static_cast<void*>(&age) << endl;
+
+    string months[12] = { 
+        "January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"
     };
-   
-    cout << "\nIterating forwards through months using pointers:" << endl;
-    for (string* ptr = months; ptr < months + 12; ptr++) {
-        cout << *ptr << endl;
+    cout << "Months Foward" << endl;
+    for (int i = 0; i < 12; ++i) {
+        cout << *(months + i) << endl; 
     }
-
-    // Iterate through months array using pointers (backwards)
-    cout << "\nIterating backwards through months using pointers:" << endl;
-    for (string* ptr = months + 11; ptr >= months; ptr--) {
-        cout << *ptr << endl;
+    cout << "Months Backwards" << endl;
+    for (int i = 11; i >= 0; --i) {
+        cout << *(months + i) << endl;
     }
 }
 
 
-void practiceStructs() {
 
-}
 
 
